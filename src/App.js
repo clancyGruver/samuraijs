@@ -8,18 +8,27 @@ import MusicPage from './components/MusicPage/MusicPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import './assets/styles/App.css';
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className="container">
         <Header />
         <LeftMenu />
         <main className="content">
-          <Route path="/profile" component={ProfilePage} />
-          <Route path="/dialogs" component={DialogsPage} />
-          <Route path="/news" component={NewsPage} />
-          <Route path="/music" component={MusicPage} />
-          <Route path="/settings" component={SettingsPage} />
+          <Route path="/profile" render={ () => (
+            <ProfilePage
+              posts={props.posts}
+              />
+          )}/>
+          <Route path="/dialogs" component={ () => (
+            <DialogsPage
+              dialogs={props.dialogs}
+              users={props.users}
+            />
+          )}/>
+          <Route path="/news" component={ () => <NewsPage /> } />
+          <Route path="/music" component={ () => <MusicPage /> } />
+          <Route path="/settings" component={ () => <SettingsPage /> } />
         </main>
       </div>
     </BrowserRouter>
