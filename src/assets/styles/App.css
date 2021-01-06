@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  background-color: #f9f9f9;
+
+  grid-template-areas:
+  "h h"
+  "n c";
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 2fr 8fr;
+}
+
+.content {
+  grid-area: c;
+  display: flex;
+  flex-direction: column;
+}

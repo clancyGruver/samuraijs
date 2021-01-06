@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.avatarContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.avatarImg {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.avatarName {
+  font-size: 0.7rem;
+}
+
+.dialog {
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 10px 15px;
+  width: 90%;
+  margin: 0 5%;
+}

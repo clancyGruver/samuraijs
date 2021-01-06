@@ -1,0 +1,8 @@
+.wrapper {
+  margin: 15px;
+}
+
+.image {
+  position: relative;
+  border-radius: 50%;
+}

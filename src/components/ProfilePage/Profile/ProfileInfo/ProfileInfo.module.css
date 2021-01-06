@@ -1,0 +1,5 @@
+.info {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
