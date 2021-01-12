@@ -1,6 +1,7 @@
 import Style from './DialogsPage.module.css';
 import DialogName from './DialogName/DialogName';
 import DialogList from './DialogList/DialogList';
+import AddDiaolg from './DialogList/AddDiaolg/AddDiaolg';
 
 
 const DialogsPage = (props) => {
@@ -17,6 +18,7 @@ const DialogsPage = (props) => {
         <ul className={Style.dialogList}>
           {dialogElements}
         </ul>
+        <AddDiaolg />
       </div>
     </div>
   );

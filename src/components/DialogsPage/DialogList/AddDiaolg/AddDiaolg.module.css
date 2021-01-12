@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput {
+
+}
+
+.btn {
+  margin-top: 10px;
+  background-color: lightgreen;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
