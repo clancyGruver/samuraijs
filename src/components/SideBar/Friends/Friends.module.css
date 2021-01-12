@@ -1,0 +1,28 @@
+.wrapper {
+  margin-top: 50px;
+}
+
+.description {
+text-align: center;
+  text-transform: uppercase;
+}
+
+.friendsContainer {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  justify-content: space-around;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ava {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+}

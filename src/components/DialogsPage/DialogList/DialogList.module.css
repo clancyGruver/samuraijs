@@ -3,6 +3,10 @@
   margin-bottom: 10px;
 }
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
 .avatarContainer {
   display: flex;
   flex-direction: column;

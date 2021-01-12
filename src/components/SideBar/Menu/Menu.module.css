@@ -1,5 +1,4 @@
 .menu {
-  grid-area: n;
   display: flex;
   flex-direction: column;
   align-items: center;

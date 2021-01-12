@@ -1,5 +1,5 @@
 import Header from './components/Header/Header';
-import LeftMenu from './components/LeftMenu/LeftMenu';
+import SideBar from './components/SideBar/SideBar';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import DialogsPage from './components/DialogsPage/DialogsPage';
@@ -13,17 +13,16 @@ const App = (props) => {
     <BrowserRouter>
       <div className="container">
         <Header />
-        <LeftMenu />
+        <SideBar state={props.state.sideBar} />
         <main className="content">
           <Route path="/profile" render={ () => (
             <ProfilePage
-              posts={props.posts}
-              />
+              state={props.state.profilePage}
+            />
           )}/>
           <Route path="/dialogs" component={ () => (
             <DialogsPage
-              dialogs={props.dialogs}
-              users={props.users}
+              state={props.state.dialogsPage}
             />
           )}/>
           <Route path="/news" component={ () => <NewsPage /> } />
