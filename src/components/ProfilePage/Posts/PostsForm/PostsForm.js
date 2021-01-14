@@ -1,18 +1,29 @@
 import Style from './PostsForm.module.css';
-import React from 'react';
 
-const PostsForm = () => {
-  const newPostElement = React.createRef();
-  
+const PostsForm = (props) => {
+  const changeHandler = (ev) => {
+    const text = ev.target.value;
+    props.postEditHandler(text);
+  }
+
   const clickHandler = () => {
-    const text = newPostElement.current.value;
-    console.log(123);
+    props.addPostHandler();
   }
 
   return (
     <form className={Style.form}>
-      <textarea className={Style.input} rows="5" defaultValue="your news" ref={newPostElement} />
-      <button type="button" className={Style.btn} onClick={ clickHandler }>Send</button>
+      <textarea
+        rows="5"
+        placeholder="Yor news"
+        value={props.newPostText}
+        className={Style.input}
+        onChange={changeHandler}
+      />
+      <button
+        type="button"
+        className={Style.btn}
+        onClick={ clickHandler }
+      >Send</button>
     </form>
   );
 }

@@ -1,17 +1,22 @@
-import React from 'react';
+import { addDialogActionCreator, editNewDialogActionCreator } from '../../../../store/dialogsReducer';
 import Style from './AddDiaolg.module.css';
 
-const AddDiaolg = () => {
-  const newDialogRef = React.createRef();
-
-  const clickHandler = () => {
-    console.log('dialog added!')
-  };
+const AddDiaolg = (props) => {
+  const changeHandler = (ev) => {
+    const text = ev.target.value;
+    props.changeNewDialogHandler(text);
+  }
+  const clickHandler = () => props.addDialogHandler();
 
   return (
     <div className={Style.wrapper}>
-      <textarea rows="2" ref={newDialogRef} className={Style.textInput} />
-      <button type="button" onClick={clickHandler} className={Style.btn}>send</button>
+      <textarea
+        rows="2"
+        className={Style.textInput}
+        value={props.newDialog}
+        onChange={changeHandler}
+      />
+      <button type="button" onClick={ clickHandler } className={Style.btn}>send</button>
     </div>
   )
 }

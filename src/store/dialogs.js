@@ -20,30 +20,31 @@ const data = {
   dialogs: [
     {
       id: 1,
-      name: "Sasha",
+      name: 'Me',
       text: 'Suspendisse at elit vitae justo volutpat rutrum at vel odio. Pellentesque vel ornare diam. Vivamus.',
     },
     {
       id: 2,
-      name: "Dimych",
+      name: 'Dimych',
       text: 'Suspendisse at elit vitae justo volutpat rutrum at vel odio. Pellentesque vel ornare diam. Vivamus.',
     },
     {
       id: 1,
-      name: "Masha",
+      name: 'Me',
       text: 'Suspendisse at elit vitae justo volutpat rutrum at vel odio. Pellentesque vel ornare diam. Vivamus.',
     },
     {
       id: 4,
-      name: "Misha",
+      name: 'Misha',
       text: 'Suspendisse at elit vitae justo volutpat rutrum at vel odio. Pellentesque vel ornare diam. Vivamus.',
     },
     {
       id: 1,
-      name: "MOrgenshtern",
+      name: 'Me',
       text: 'Suspendisse at elit vitae justo volutpat rutrum at vel odio. Pellentesque vel ornare diam. Vivamus.',
     },
   ],
+  newDialog: '',
 };
 
 export default data;

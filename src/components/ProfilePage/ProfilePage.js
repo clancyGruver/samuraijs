@@ -9,7 +9,11 @@ const ProfilePage = (props) => {
       <MainImage />
       <div className={Style.container}>
         <Profile />
-        <Posts posts={props.state.posts} />
+        <Posts
+          posts={props.state.posts}
+          newPostText={props.state.newPostText}
+          dispatch={props.dispatch}
+        />
       </div>
     </>
   );

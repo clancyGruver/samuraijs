@@ -16,6 +16,7 @@ const data = {
       likeCount: 20,
     },
   ],
+  newPostText: '',
 };
 
 export default data;

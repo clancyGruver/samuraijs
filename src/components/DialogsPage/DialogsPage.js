@@ -1,11 +1,11 @@
 import Style from './DialogsPage.module.css';
 import DialogName from './DialogName/DialogName';
 import DialogList from './DialogList/DialogList';
-import AddDiaolg from './DialogList/AddDiaolg/AddDiaolg';
+import AddDiaolgContainer from './DialogList/AddDiaolg/AddDiaolgContainer';
 
 
 const DialogsPage = (props) => {
-  const userElements = props.state.users.map((user, idx) => (<DialogName key={idx} user={user} />));
+  const userElements = props.state.users.map((user) => (<DialogName key={user.id} user={user} />));
   const dialogElements = props.state.dialogs.map((dialog, idx) => (<DialogList key={idx} dialogItem={dialog} />));
 
   return (
@@ -18,7 +18,10 @@ const DialogsPage = (props) => {
         <ul className={Style.dialogList}>
           {dialogElements}
         </ul>
-        <AddDiaolg />
+        <AddDiaolgContainer
+          newDialog={props.state.newDialog}
+          dispatch={props.dispatch}
+        />
       </div>
     </div>
   );
