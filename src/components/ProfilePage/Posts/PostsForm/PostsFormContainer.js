@@ -1,17 +1,15 @@
 import {editPostActionCreator, addPostActionCreator } from '../../../../store/profileReducer';
 import PostForm from './PostsForm';
+import { connect } from 'react-redux';
 
-const PostsFormContainer = (props) => {
-  const postEditHandler = (text) => props.dispatch(editPostActionCreator(text));
-  const addPostHandler = () => props.dispatch(addPostActionCreator());
+const mapStateToProps = (state) => ({
+  newPostText: state.profilePage.newPostText,
+});
+const mapDispatchToProps = (dispatch) => ({
+  postEditHandler: (text) => dispatch(editPostActionCreator(text)),
+  addPostHandler: () => dispatch(addPostActionCreator()),
+})
 
-  return (
-    <PostForm
-      addPostHandler={addPostHandler}
-      postEditHandler={postEditHandler}
-      newPostText={props.newPostText}
-    />
-  );
-}
+const PostsFormContainer = connect(mapStateToProps, mapDispatchToProps)(PostForm);
 
 export default PostsFormContainer;

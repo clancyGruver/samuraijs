@@ -5,26 +5,29 @@ const EDIT_POST_TEXT = 'EDIT-POST-TEXT';
 
 
 const profileReducer = (state = initialState, action) => {
+  const stateCopy = {...state};
+
   switch (action.type) {
     case ADD_POST:
       let maxId = 0;
-      const posts = state.posts;
+      const posts = stateCopy.posts;
       maxId = Math.max(...posts.map( post => Number.parseInt(post.id, 10) ));
       const newPost = {
         id: maxId + 1,
         text: state.newPostText,
         likeCount: 0,
       }
-      posts.push(newPost);
-      state.newPostText = '';
+      stateCopy.posts = [...state.posts];
+      stateCopy.posts.push(newPost);
+      stateCopy.newPostText = '';
       break;
     case EDIT_POST_TEXT:
-      state.newPostText = action.text;
+      stateCopy.newPostText = action.text;
       break;
     default:
       break;
   };
-  return state;
+  return stateCopy;
 };
 
 export const addPostActionCreator = () => ({ type: ADD_POST });

@@ -5,10 +5,7 @@ const Posts = (props) => {
   return (
     <div className="posts">
       <h3 className="description">My posts</h3>
-      <PostsFormContainer
-        newPostText={props.newPostText}
-        dispatch={props.dispatch}
-      />
+      <PostsFormContainer />
       {props.posts.map(post => (
         <PostItem
           text={post.text}

@@ -1,0 +1,53 @@
+.userContainer{
+  display: flex;
+  margin-top: 20px;
+}
+.avatarContainer{
+  display: flex;
+  flex-direction: column;
+}
+.avatarImage{
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 60px;
+}
+.followBtn{
+  border: 2px solid darkgreen;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.followBtn:hover{
+  border: 2px solid lightgreen;
+  background-color: darkgreen;
+}
+.infoContainer{
+  display: flex;
+  border: 2px solid lightgray;
+  width: 85%;
+  align-items: center;
+  margin-left: 20px;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 15px;
+}
+.leftSide{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+.name{}
+.status{}
+.rightSide{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+.city{}
+.country{}
+.selectedPage {
+  font-weight: 800;
+}

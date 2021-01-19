@@ -4,25 +4,27 @@ const ADD_DIALOG = 'ADD-DIALOG';
 const EDIT_NEW_DIALOG = 'EDIT-NEW-DIALOG';
 
 const dialogsReducer = (state = dialogsPage, action) => {
+  const stateCopy = {...state};
   switch (action.type) {
     case ADD_DIALOG:
-      const obj = {
+      const newDialog = {
         id: 1,
         name: 'me',
-        text: state.newDialog,
+        text: stateCopy.newDialog,
       }
-      state.dialogs.push(obj);
-      state.newDialog = '';
+      stateCopy.dialogs = [...state.dialogs];
+      stateCopy.dialogs.push(newDialog);
+      stateCopy.newDialog = '';
       break;
 
       case EDIT_NEW_DIALOG:
-        state.newDialog = action.text;
+        stateCopy.newDialog = action.text;
       break;
   
     default:
       break;
   };
-  return state;
+  return stateCopy;
 };
 
 export const addDialogActionCreator = () => ({ type: ADD_DIALOG });

@@ -1,4 +1,3 @@
-import { addDialogActionCreator, editNewDialogActionCreator } from '../../../../store/dialogsReducer';
 import Style from './AddDiaolg.module.css';
 
 const AddDiaolg = (props) => {

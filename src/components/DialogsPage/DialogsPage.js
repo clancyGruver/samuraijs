@@ -5,8 +5,8 @@ import AddDiaolgContainer from './DialogList/AddDiaolg/AddDiaolgContainer';
 
 
 const DialogsPage = (props) => {
-  const userElements = props.state.users.map((user) => (<DialogName key={user.id} user={user} />));
-  const dialogElements = props.state.dialogs.map((dialog, idx) => (<DialogList key={idx} dialogItem={dialog} />));
+  const userElements = props.users.map((user) => (<DialogName key={user.id} user={user} />));
+  const dialogElements = props.dialogs.map((dialog, idx) => (<DialogList key={idx} dialogItem={dialog} />));
 
   return (
     <div className={Style.wrapper}>
@@ -18,10 +18,7 @@ const DialogsPage = (props) => {
         <ul className={Style.dialogList}>
           {dialogElements}
         </ul>
-        <AddDiaolgContainer
-          newDialog={props.state.newDialog}
-          dispatch={props.dispatch}
-        />
+        <AddDiaolgContainer />
       </div>
     </div>
   );

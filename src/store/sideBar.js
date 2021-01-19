@@ -20,6 +20,10 @@ const data = {
       to: '/settings',
       name: 'Settings',
     },
+    {
+      to: '/users',
+      name: 'Users',
+    },
   ],
   friends: [
     {

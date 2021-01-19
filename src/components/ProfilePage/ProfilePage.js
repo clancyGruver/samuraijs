@@ -10,9 +10,7 @@ const ProfilePage = (props) => {
       <div className={Style.container}>
         <Profile />
         <Posts
-          posts={props.state.posts}
-          newPostText={props.state.newPostText}
-          dispatch={props.dispatch}
+          posts={props.posts}
         />
       </div>
     </>

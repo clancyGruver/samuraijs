@@ -1,8 +1,9 @@
-import Header from './components/Header/Header';
-import SideBar from './components/SideBar/SideBar';
 import { Route } from 'react-router-dom';
-import ProfilePage from './components/ProfilePage/ProfilePage';
-import DialogsPage from './components/DialogsPage/DialogsPage';
+import Header from './components/Header/Header';
+import SideBarContainer from './components/SideBar/SideBarContainer';
+import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
+import DialogsPageContainer from './components/DialogsPage/DialogsPageContainer';
+import UsersPageContainer from './components/UsersPage/UsersPageContainer';
 import NewsPage from './components/NewsPage/NewsPage';
 import MusicPage from './components/MusicPage/MusicPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
@@ -12,20 +13,26 @@ const App = (props) => {
   return (
     <div className="container">
       <Header />
-      <SideBar state={props.state.sideBar} />
+      <SideBarContainer />
       <main className="content">
-        <Route path="/profile" render={ () => (
-          <ProfilePage
-            state={props.state.profilePage}
-            dispatch={props.dispatch}
-          />
-        )}/>
-        <Route path="/dialogs" render={ () => (
-          <DialogsPage
-            state={props.state.dialogsPage}
-            dispatch={props.dispatch}
-          />
-        )}/>
+        <Route
+          path="/profile"
+          render={ () => (
+            <ProfilePageContainer />
+          )}
+        />
+        <Route
+          path="/dialogs"
+          render={ () => (
+            <DialogsPageContainer />
+          )}
+        />
+        <Route
+          path="/users"
+          render={ () => (
+            <UsersPageContainer />
+          )}
+        />
         <Route path="/news" render={ () => <NewsPage /> } />
         <Route path="/music" render={ () => <MusicPage /> } />
         <Route path="/settings" render={ () => <SettingsPage /> } />

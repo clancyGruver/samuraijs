@@ -5,8 +5,8 @@ import Friends from './Friends/Friends';
 const SideBar = (props) => {
   return (
     <div className={Style.sideMenu}>
-      <Menu menuItems={props.state.menuItems} />
-      <Friends friends={props.state.friends} />
+      <Menu menuItems={props.menuItems} />
+      <Friends friends={props.friends} />
     </div>
   );
 }
