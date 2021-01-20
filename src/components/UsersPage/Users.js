@@ -1,5 +1,6 @@
 import Style from './UsersPage.module.css';
 import avatarImg from '../../assets/images/avatar-dialog.svg';
+import { NavLink } from 'react-router-dom';
 
 const Users = (props) => {
 
@@ -26,7 +27,9 @@ const Users = (props) => {
   const usersElements = () => props.users.map(user => (
     <div key={user.id} className={Style.userContainer}>
       <div className={Style.avatarContainer}>
-        <img className={Style.avatarImage} src={user.photos.small || avatarImg} alt="user avatar" />
+        <NavLink to={`/profile/${user.id}`}>
+          <img className={Style.avatarImage} src={user.photos.small || avatarImg} alt="user avatar" />
+        </NavLink>
         <button
           type="button"
           className={Style.followBtn}
