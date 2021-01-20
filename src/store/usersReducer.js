@@ -1,4 +1,5 @@
 const CHANGE_FOLLOW = 'CHANGE-FOLLOW';
+const SET_IS_FETCHING = 'SET-IS-FETCHING';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_USERS_COUNT = 'SET-USERS-COUNT';
@@ -8,6 +9,7 @@ const initState = {
   pageSize: 5,
   totalUsersCount: 18,
   currentPage: 1,
+  isFetching: false,
 };
 
 const usersReducer = (state = initState, action) => {
@@ -29,6 +31,9 @@ const usersReducer = (state = initState, action) => {
     case SET_USERS_COUNT:
       stateCopy.totalUsersCount = action.totalUsersCount;
       break;
+    case SET_IS_FETCHING:
+      stateCopy.isFetching = action.isFetching;
+      break;
     default: break;
   }
   return stateCopy;
@@ -49,6 +54,10 @@ export const setCurrentPageAC = (pageNumber) => ({
 export const setUsersCountAC = (totalUsersCount) => ({
   type: SET_USERS_COUNT,
   totalUsersCount,
+});
+export const setIsFetchingAC = (isFetching) => ({
+  type: SET_IS_FETCHING,
+  isFetching,
 });
 
 export default usersReducer;
