@@ -1,5 +1,5 @@
 import { Route } from 'react-router-dom';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import SideBarContainer from './components/SideBar/SideBarContainer';
 import ProfilePageContainer from './components/ProfilePage/ProfilePageContainer';
 import DialogsPageContainer from './components/DialogsPage/DialogsPageContainer';
@@ -12,7 +12,7 @@ import './assets/styles/App.css';
 const App = (props) => {
   return (
     <div className="container">
-      <Header />
+      <HeaderContainer />
       <SideBarContainer />
       <main className="content">
         <Route
