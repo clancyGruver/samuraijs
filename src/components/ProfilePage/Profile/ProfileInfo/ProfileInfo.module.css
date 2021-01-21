@@ -3,3 +3,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.contacts a {
+  color: black;
+  padding-right: 10px
+}
+
+.job {}
