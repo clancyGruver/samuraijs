@@ -8,7 +8,7 @@ const ProfilePage = (props) => {
     <>
       <MainImage />
       <div className={Style.container}>
-        <Profile />
+        <Profile profile={props.profile} />
         <Posts
           posts={props.posts}
         />

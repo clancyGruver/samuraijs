@@ -2,6 +2,7 @@ import initialState from './profile';
 
 const ADD_POST = 'ADD-POST';
 const EDIT_POST_TEXT = 'EDIT-POST-TEXT';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 
 const profileReducer = (state = initialState, action) => {
@@ -24,6 +25,9 @@ const profileReducer = (state = initialState, action) => {
     case EDIT_POST_TEXT:
       stateCopy.newPostText = action.text;
       break;
+    case SET_USER_PROFILE:
+      stateCopy.userProfile = {...action.userProfile};
+      break;
     default:
       break;
   };
@@ -35,5 +39,9 @@ export const editPostActionCreator = (text) => ({
   type: EDIT_POST_TEXT,
   text
 });
+export const setUserProfile = (userProfile) => ({
+  type: SET_USER_PROFILE,
+  userProfile
+})
 
 export default profileReducer;

@@ -17,6 +17,7 @@ const data = {
     },
   ],
   newPostText: '',
+  userProfile: null,
 };
 
 export default data;
