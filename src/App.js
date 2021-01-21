@@ -16,7 +16,7 @@ const App = (props) => {
       <SideBarContainer />
       <main className="content">
         <Route
-          path="/profile"
+          path="/profile/:userId?"
           render={ () => (
             <ProfilePageContainer />
           )}

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ProfilePageAPI from './ProfilePageAPI';
 import { setUserProfile } from '../../store/profileReducer';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => ({
   posts: state.profilePage.posts,
@@ -10,6 +11,8 @@ const mapDispatchToProps = {
   setUserProfile,
 };
 
-const ProfilePageContainer = connect(mapStateToProps, mapDispatchToProps)(ProfilePageAPI);
+const ProfilePageAPIWithRouter = withRouter(ProfilePageAPI);
+
+const ProfilePageContainer = connect(mapStateToProps, mapDispatchToProps)(ProfilePageAPIWithRouter);
 
 export default ProfilePageContainer;
