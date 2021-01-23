@@ -1,10 +1,9 @@
 import UsersAPI from './UsersAPI';
 import {
-  changeFollowAC as changeFollow,
-  setUsersAC as setUsers,
-  setCurrentPageAC as setCurrentPage,
-  setUsersCountAC as setUsersCount,
-  setIsFetchingAC as setIsFetching
+  toggleFollow,
+  setIsFollowingProgress,
+  getUsers,
+  changePageHandler,
 } from '../../store/usersReducer';
 import { connect } from 'react-redux';
 
@@ -14,14 +13,14 @@ const mapStateToProps = (state) => ({
   totalUsersCount: state.usersPage.totalUsersCount,
   currentPage: state.usersPage.currentPage,
   isFetching: state.usersPage.isFetching,
+  isFollowingProgress: state.usersPage.isFollowingProgress,
 });
 
 const mapDispatchToProps = {
-  changeFollow,
-  setUsers,
-  setCurrentPage,
-  setUsersCount,
-  setIsFetching,
+  toggleFollow,
+  setIsFollowingProgress,
+  getUsers,
+  changePageHandler,
 };
 
 

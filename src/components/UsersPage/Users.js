@@ -24,6 +24,8 @@ const Users = (props) => {
     ))
   }
 
+  const followHandler = (user) => props.toggleFollow(user);
+
   const usersElements = () => props.users.map(user => (
     <div key={user.id} className={Style.userContainer}>
       <div className={Style.avatarContainer}>
@@ -33,7 +35,8 @@ const Users = (props) => {
         <button
           type="button"
           className={Style.followBtn}
-          onClick={() => props.changeFollowHandler(user.id)}
+          onClick={() => followHandler(user)}
+          disabled={props.isFollowingProgress.some( id => id === user.id)}
         >{user.followed ? 'unfollow' : 'follow'}</button>
       </div>
       <div className={Style.infoContainer}>

@@ -1,3 +1,5 @@
+import { authAPI } from '../API/api';
+
 const SET_CURRENT_USER = 'SET-CURRENT-USER';
 
 const initialState = {
@@ -25,9 +27,22 @@ const authReducer = (state = initialState, action) => {
   return stateCopy;
 }
 
-export const setUser = (userData) => ({
+//action creators
+
+const setUser = (userData) => ({
   type: SET_CURRENT_USER,
   userData,
 });
+
+//thunks
+
+export const isAuthentcated = () => (dispatch) => {
+  authAPI.isAuthentcated()
+  .then( (data) => {
+    if (data.resultCode === 0) {
+      dispatch(setUser(data.data));
+    }
+  });
+}
 
 export default authReducer;
