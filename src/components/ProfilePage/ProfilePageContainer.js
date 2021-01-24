@@ -12,12 +12,7 @@ const mapDispatchToProps = {
   setUserProfile,
 };
 
-const mapStateToPropsRedirect = (state) => ({
-  isAuth: state.auth.isAuth,
-});
-
 let AuthRedirect = withAuthRedirect(ProfilePageAPI);
-AuthRedirect = connect(mapStateToPropsRedirect)(AuthRedirect);
 
 const ProfilePageAPIWithRouter = withRouter(AuthRedirect);
 
