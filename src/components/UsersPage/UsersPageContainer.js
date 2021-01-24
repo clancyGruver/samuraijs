@@ -6,6 +6,8 @@ import {
   changePageHandler,
 } from '../../store/usersReducer';
 import { connect } from 'react-redux';
+import withAuthRedirect from '../../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => ({
   users: state.usersPage.users,
@@ -23,7 +25,7 @@ const mapDispatchToProps = {
   changePageHandler,
 };
 
-
-const UsersPageContainer = connect(mapStateToProps, mapDispatchToProps)(UsersAPI);
-
-export default UsersPageContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withAuthRedirect
+)(UsersAPI);

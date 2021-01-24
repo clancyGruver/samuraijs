@@ -3,6 +3,7 @@ import ProfilePageAPI from './ProfilePageAPI';
 import { setUserProfile } from '../../store/profileReducer';
 import { withRouter } from 'react-router-dom';
 import withAuthRedirect from '../../HOC/withAuthRedirect';
+import { compose } from 'redux';
 
 const mapStateToProps = (state) => ({
   posts: state.profilePage.posts,
@@ -12,10 +13,8 @@ const mapDispatchToProps = {
   setUserProfile,
 };
 
-let AuthRedirect = withAuthRedirect(ProfilePageAPI);
-
-const ProfilePageAPIWithRouter = withRouter(AuthRedirect);
-
-const ProfilePageContainer = connect(mapStateToProps, mapDispatchToProps)(ProfilePageAPIWithRouter);
-
-export default ProfilePageContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter,
+  withAuthRedirect
+)(ProfilePageAPI);
