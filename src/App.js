@@ -7,6 +7,7 @@ import UsersPageContainer from './components/UsersPage/UsersPageContainer';
 import NewsPage from './components/NewsPage/NewsPage';
 import MusicPage from './components/MusicPage/MusicPage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import './assets/styles/App.css';
 
 const App = (props) => {
@@ -31,6 +32,12 @@ const App = (props) => {
           path="/users"
           render={ () => (
             <UsersPageContainer />
+          )}
+        />
+        <Route
+          path="/login"
+          render={ () => (
+            <LoginPage />
           )}
         />
         <Route path="/news" render={ () => <NewsPage /> } />

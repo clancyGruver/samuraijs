@@ -1,4 +1,5 @@
 import initialState from './profile';
+import { userAPI } from '../API/api';
 
 const ADD_POST = 'ADD-POST';
 const EDIT_POST_TEXT = 'EDIT-POST-TEXT';
@@ -39,9 +40,22 @@ export const editPostActionCreator = (text) => ({
   type: EDIT_POST_TEXT,
   text
 });
-export const setUserProfile = (userProfile) => ({
+const setUserProfileAction = (userProfile) => ({
   type: SET_USER_PROFILE,
   userProfile
 })
+
+//thunk 
+
+export const setUserProfile = (userId) => (dispatch, getState) => {
+  const { auth } = getState();
+  const id = userId || auth.id;
+  if (id) {
+    userAPI.getProfile(id)
+      .then((data) => {
+        dispatch(setUserProfileAction(data));
+      });
+  }
+}
 
 export default profileReducer;

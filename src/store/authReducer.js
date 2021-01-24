@@ -36,13 +36,12 @@ const setUser = (userData) => ({
 
 //thunks
 
-export const isAuthentcated = () => (dispatch) => {
-  authAPI.isAuthentcated()
-  .then( (data) => {
-    if (data.resultCode === 0) {
-      dispatch(setUser(data.data));
-    }
-  });
-}
+export const isAuthenticated = () => (dispatch) =>
+    authAPI.isAuthenticated()
+      .then( (data) => {
+        if (data.resultCode === 0) {
+          dispatch(setUser(data.data));
+        }
+      });
 
 export default authReducer;

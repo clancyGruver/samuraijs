@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from './Header';
-import { isAuthentcated } from '../../store/authReducer';
+import { isAuthenticated } from '../../store/authReducer';
 import { connect } from 'react-redux';
 
 class HeaderContainer extends React.Component {
 
   componentDidMount() {
-    isAuthentcated();
+    this.props.isAuthenticated();
   }
 
   render () {
@@ -19,6 +19,10 @@ const mapStateToProps = (state) => ({
   login: state.auth.login,
 });
 
-const HeaderContainerState = connect(mapStateToProps)(HeaderContainer);
+const mapDispatchToProps = {
+  isAuthenticated
+}
+
+const HeaderContainerState = connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
 
 export default HeaderContainerState;
