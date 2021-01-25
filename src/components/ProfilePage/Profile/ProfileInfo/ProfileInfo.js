@@ -1,10 +1,11 @@
 import Style from './ProfileInfo.module.css';
+import AboutMe from './AboutMe/AboutMe';
 
 const ProfileInfo = (props) => {
   return (
     <div className={Style.info}>
       <p className="name"><strong>{props.profile.fullName}</strong></p>
-      <p className="aboutMe"><strong>{props.profile.aboutMe}</strong></p>
+      <AboutMe status={props.profile.aboutMe} />
       <div className={Style.contacts}>
         {props.profile.contacts.facebook && <a rel="noreferrer" target="_blank" href={props.profile.contacts.facebook}><i className="fab fa-facebook"></i></a> }
         {props.profile.contacts.website && <a rel="noreferrer" target="_blank" href={props.profile.contacts.website}><i className="fas fa-globe"></i></a> }
