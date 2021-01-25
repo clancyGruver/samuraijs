@@ -1,7 +1,7 @@
 import React from 'react';
-import Style from './AboutMe.module.css';
+import Style from './Status.module.css';
 
-class AboutMe extends React.Component {
+class Status extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,4 +35,4 @@ class AboutMe extends React.Component {
   }
 }
 
-export default AboutMe;
+export default Status;
