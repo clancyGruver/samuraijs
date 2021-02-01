@@ -10,7 +10,11 @@ const Profile = (props) => {
     }
     return (<>
       <Avatar avatar={props.profile.photos.small} />
-      <ProfileInfo profile={props.profile} />
+      <ProfileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
     </>)
   }
 

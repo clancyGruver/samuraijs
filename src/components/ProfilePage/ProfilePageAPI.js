@@ -6,6 +6,7 @@ export default class ProfilePageAPI extends React.Component {
     const { match } = this.props;
     const userId = match.params.userId;
     this.props.setUserProfile(userId);
+    this.props.getStatus(userId);
   }
 
   render() {

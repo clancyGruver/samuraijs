@@ -1,9 +1,10 @@
 import initialState from './profile';
-import { userAPI } from '../API/api';
+import { profileAPI } from '../API/api';
 
 const ADD_POST = 'ADD-POST';
 const EDIT_POST_TEXT = 'EDIT-POST-TEXT';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
+const SET_STATUS = 'SET-STATUS';
 
 
 const profileReducer = (state = initialState, action) => {
@@ -29,6 +30,9 @@ const profileReducer = (state = initialState, action) => {
     case SET_USER_PROFILE:
       stateCopy.userProfile = {...action.userProfile};
       break;
+    case SET_STATUS: 
+      stateCopy.status = action.status;
+      break;
     default:
       break;
   };
@@ -44,18 +48,43 @@ const setUserProfileAction = (userProfile) => ({
   type: SET_USER_PROFILE,
   userProfile
 })
+const setProfileStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+})
 
 //thunk 
 
 export const setUserProfile = (userId) => (dispatch, getState) => {
   const { auth } = getState();
-  const id = userId || auth.id;
+  const id = userId || auth.id || 14165;
   if (id) {
-    userAPI.getProfile(id)
+    profileAPI
+      .getProfile(id)
       .then((data) => {
         dispatch(setUserProfileAction(data));
       });
   }
+}
+
+export const getStatus = (userId) => (dispatch, getState) => {
+  const { auth } = getState();
+  const id = userId || auth.id || 14165;
+  profileAPI
+    .getStatus(id)
+    .then((data) => {
+      dispatch(setProfileStatus(data));
+    })
+}
+
+export const updateStatus = (newStatus) => (dispatch) => {
+  profileAPI
+    .updateStatus(newStatus)
+    .then((data) => {
+      if(data.resultCode === 0){
+        dispatch(setProfileStatus(data));
+      }
+    })
 }
 
 export default profileReducer;

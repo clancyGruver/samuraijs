@@ -1,6 +1,7 @@
 import { authAPI } from '../API/api';
 
 const SET_CURRENT_USER = 'SET-CURRENT-USER';
+const REMOVE_USER = 'REMOVE-USER';
 
 const initialState = {
   id: null,
@@ -21,6 +22,15 @@ const authReducer = (state = initialState, action) => {
         isAuth: true,
       };
       break;
+    case REMOVE_USER:
+      stateCopy = {
+        ...state,
+        id: null,
+        login: '',
+        email: '',
+        isAuth: false,
+      };
+      break;
     default: break;
   }
 
@@ -34,6 +44,10 @@ const setUser = (userData) => ({
   userData,
 });
 
+const removeUser = (userData) => ({
+  type: REMOVE_USER,
+});
+
 //thunks
 
 export const isAuthenticated = () => (dispatch) =>
@@ -41,6 +55,20 @@ export const isAuthenticated = () => (dispatch) =>
       .then( (data) => {
         if (data.resultCode === 0) {
           dispatch(setUser(data.data));
+        }
+      });
+export const login = (values) => (dispatch) =>
+    authAPI.login(values)
+      .then( (data) => {
+        if (data.resultCode === 0) {
+          dispatch(isAuthenticated());
+        }
+      });
+export const logout = () => (dispatch) => 
+    authAPI.logout()
+      .then( (data) => {
+        if (data.resultCode === 0) {
+          dispatch(removeUser());
         }
       });
 

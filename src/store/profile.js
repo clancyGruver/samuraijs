@@ -18,6 +18,7 @@ const data = {
   ],
   newPostText: '',
   userProfile: null,
+  status: '',
 };
 
 export default data;

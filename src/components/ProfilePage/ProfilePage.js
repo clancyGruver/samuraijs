@@ -8,7 +8,11 @@ const ProfilePage = (props) => {
     <>
       <MainImage />
       <div className={Style.container}>
-        <Profile profile={props.profile} />
+        <Profile
+          profile={props.profile}
+          status={props.status}
+          updateStatus={props.updateStatus}
+        />
         <Posts
           posts={props.posts}
         />

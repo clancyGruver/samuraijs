@@ -1,12 +1,20 @@
 import Style from './ProfileInfo.module.css';
-import AboutMe from './Status/Status';
+import Status from './Status/Status';
+import Preloader from '../../../Preloader/Preloader';
 
 const ProfileInfo = (props) => {
+  if (!props) {
+    return (<Preloader />)
+  }
+
   return (
     <div className={Style.info}>
       <div className="name"><strong>{props.profile.fullName}</strong></div>
       <div className="AboutMe">{props.profile.aboutMe}</div>
-      <Status />
+      <Status
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <div className={Style.contacts}>
         {props.profile.contacts.facebook && <a rel="noreferrer" target="_blank" href={props.profile.contacts.facebook}><i className="fab fa-facebook"></i></a> }
         {props.profile.contacts.website && <a rel="noreferrer" target="_blank" href={props.profile.contacts.website}><i className="fas fa-globe"></i></a> }
