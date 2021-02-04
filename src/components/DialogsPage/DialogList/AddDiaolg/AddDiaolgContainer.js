@@ -1,4 +1,4 @@
-import { addDialogActionCreator, editNewDialogActionCreator } from '../../../../store/dialogsReducer';
+import { addDialogActionCreator } from '../../../../store/dialogsReducer';
 import AddDiaolg from './AddDiaolg';
 import { connect } from 'react-redux';
 
@@ -6,8 +6,7 @@ const mapStateToProps = (state) => ({
   newDialog: state.dialogsPage.newDialog
 });
 const mapDispatchToProps = (dispatch) => ({
-  addDialogHandler: () => dispatch(addDialogActionCreator()),
-  changeNewDialogHandler: (text) => dispatch(editNewDialogActionCreator(text)),
+  addDialogHandler: (text) => dispatch(addDialogActionCreator(text)),
 });
 
 const AddDiaolgContainer = connect(mapStateToProps, mapDispatchToProps)(AddDiaolg);
